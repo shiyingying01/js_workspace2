@@ -10,8 +10,12 @@ function countItems(items) {
     for (let i = 0; i < items.length; i++) {
         let index = products.findIndex(element => element.id === items[i])
         if (index > -1) {
-            let product = products[index]
-            product.count = product.count + 1;
+            // let product = products[index]
+            // product.count = product.count + 1;
+            products[index] = {
+                id:items[i],
+                count: products[index].count + 1
+            }
         }
         else {
             products.push({
@@ -39,6 +43,7 @@ function getItems() {
         ]
     return data;
 }
+
 function fillItems(countItems) {
     var data = getItems();
     var allItems = [];
