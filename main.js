@@ -1,7 +1,7 @@
 function printReceipt(items) {
-    countItems = countItems(items);
-    fillItems = fillItems(countItems);
-    receipt = generateItems(fillItems);
+    var itemsCount = countItems(items);
+    var itemsFill = fillItems(itemsCount);
+    var receipt = generateItems(itemsFill);
     return receipt;
 }
 
@@ -13,7 +13,7 @@ function countItems(items) {
             // let product = products[index]
             // product.count = product.count + 1;
             products[index] = {
-                id:items[i],
+                id: items[i],
                 count: products[index].count + 1
             }
         }
@@ -44,13 +44,13 @@ function getItems() {
     return data;
 }
 
-function fillItems(countItems) {
+function fillItems(itemsCount) {
     var data = getItems();
     var allItems = [];
-    for (let i = 0; i < countItems.length; i++) {
+    for (let i = 0; i < itemsCount.length; i++) {
         for (let j = 0; j < data.length; j++) {
-            if (countItems[i].id == data[j].id) {
-                allItems.push({ id: data[j].id, count: countItems[i].count, name: data[j].name, price: data[j].price })
+            if (itemsCount[i].id == data[j].id) {
+                allItems.push({ id: data[j].id, count: itemsCount[i].count, name: data[j].name, price: data[j].price })
             }
         }
     }
